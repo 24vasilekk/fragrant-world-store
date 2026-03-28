@@ -81,12 +81,24 @@
 
           <div class="catalog-tools__right">
             <input id="searchInput" class="search-input" type="search" placeholder="Поиск по названию или бренду" />
-            <select id="sortSelect" class="sort-select">
+            <select id="sortSelect" class="sort-select sort-select-native">
               <option value="default">Сортировка: по умолчанию</option>
               <option value="price-asc">Цена: по возрастанию</option>
               <option value="price-desc">Цена: по убыванию</option>
               <option value="name-asc">Название: А-Я</option>
             </select>
+            <div class="sort-custom" id="sortCustom">
+              <button class="sort-custom__trigger" id="sortTrigger" type="button" aria-expanded="false" aria-controls="sortMenu">
+                <span id="sortLabel">Сортировка: по умолчанию</span>
+                <span class="sort-custom__arrow" aria-hidden="true"></span>
+              </button>
+              <div class="sort-custom__menu" id="sortMenu" role="listbox" aria-label="Сортировка">
+                <button class="sort-custom__option is-active" type="button" data-sort="default">Сортировка: по умолчанию</button>
+                <button class="sort-custom__option" type="button" data-sort="price-asc">Цена: по возрастанию</button>
+                <button class="sort-custom__option" type="button" data-sort="price-desc">Цена: по убыванию</button>
+                <button class="sort-custom__option" type="button" data-sort="name-asc">Название: А-Я</button>
+              </div>
+            </div>
           </div>
         </div>
 

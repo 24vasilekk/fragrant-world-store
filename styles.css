@@ -445,6 +445,83 @@ a {
   box-shadow: 0 0 0 3px rgba(200, 143, 47, 0.2);
 }
 
+.sort-custom {
+  display: none;
+  position: relative;
+  width: 100%;
+}
+
+.sort-custom__trigger {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #ddd1be;
+  border-radius: 13px;
+  background: #fffdf9;
+  color: #4b4032;
+  padding: 0.66rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sort-custom__arrow {
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid #6a5b47;
+  border-bottom: 2px solid #6a5b47;
+  transform: rotate(-45deg) translateY(-1px);
+  transition: transform 200ms ease;
+}
+
+.sort-custom.is-open .sort-custom__arrow {
+  transform: rotate(135deg) translateY(1px);
+}
+
+.sort-custom__menu {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  right: 0;
+  border: 1px solid #e2d5c1;
+  background: #fffaf2;
+  border-radius: 14px;
+  box-shadow: 0 12px 24px rgba(67, 46, 19, 0.12);
+  padding: 0.35rem;
+  display: none;
+  z-index: 30;
+}
+
+.sort-custom.is-open .sort-custom__menu {
+  display: grid;
+  gap: 0.24rem;
+}
+
+.sort-custom__option {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  padding: 0.56rem 0.62rem;
+  text-align: left;
+  font: inherit;
+  color: #4f4333;
+  cursor: pointer;
+}
+
+.sort-custom__option.is-active {
+  background: #f3e7d3;
+  color: #2e2418;
+  font-weight: 700;
+}
+
+.sort-custom__option:active {
+  transform: scale(0.997);
+}
+
 .filter-btn {
   border: 1px solid var(--line);
   background: #fff;
@@ -1174,6 +1251,14 @@ a {
     min-width: 0;
     min-height: 46px;
     border-radius: 13px;
+  }
+
+  .sort-select-native {
+    display: none;
+  }
+
+  .sort-custom {
+    display: block;
   }
 
   .filter-btn {

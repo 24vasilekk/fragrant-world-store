@@ -5,6 +5,10 @@
   const revealItems = Array.from(document.querySelectorAll('.reveal'));
   const searchInput = document.getElementById('searchInput');
   const sortSelect = document.getElementById('sortSelect');
+  const sortCustom = document.getElementById('sortCustom');
+  const sortTrigger = document.getElementById('sortTrigger');
+  const sortMenu = document.getElementById('sortMenu');
+  const sortLabel = document.getElementById('sortLabel');
   const perfumeModel = document.getElementById('perfumeModel');
 
   const modal = document.getElementById('productModal');
@@ -20,6 +24,12 @@
   let activeFilter = 'all';
   let searchQuery = '';
   let sortMode = 'default';
+  const sortLabels = {
+    default: 'Сортировка: по умолчанию',
+    'price-asc': 'Цена: по возрастанию',
+    'price-desc': 'Цена: по убыванию',
+    'name-asc': 'Название: А-Я'
+  };
 
   function setupModelByDevice() {
     if (!perfumeModel) return;
@@ -74,6 +84,18 @@
       });
     }
     return sorted;
+  }
+
+  function setSortMode(mode) {
+    sortMode = mode;
+    if (sortSelect) sortSelect.value = mode;
+    if (sortLabel) sortLabel.textContent = sortLabels[mode] || sortLabels.default;
+    if (sortMenu) {
+      sortMenu.querySelectorAll('[data-sort]').forEach(function (node) {
+        node.classList.toggle('is-active', node.dataset.sort === mode);
+      });
+    }
+    renderCatalog();
   }
 
   function filteredProducts() {
@@ -160,9 +182,30 @@
   });
 
   sortSelect.addEventListener('change', function () {
-    sortMode = sortSelect.value;
-    renderCatalog();
+    setSortMode(sortSelect.value);
   });
+
+  if (sortCustom && sortTrigger && sortMenu) {
+    sortTrigger.addEventListener('click', function () {
+      const opened = sortCustom.classList.toggle('is-open');
+      sortTrigger.setAttribute('aria-expanded', String(opened));
+    });
+
+    sortMenu.addEventListener('click', function (event) {
+      const btn = event.target.closest('[data-sort]');
+      if (!btn) return;
+      setSortMode(btn.dataset.sort);
+      sortCustom.classList.remove('is-open');
+      sortTrigger.setAttribute('aria-expanded', 'false');
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!sortCustom.contains(event.target)) {
+        sortCustom.classList.remove('is-open');
+        sortTrigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 
   catalogGrid.addEventListener('click', function (event) {
     const card = event.target.closest('[data-product]');
@@ -208,7 +251,7 @@
   });
 
   products = dataApi.loadCatalog();
-  renderCatalog();
+  setSortMode(sortMode);
   revealItems.forEach(function (item) {
     item.classList.add('is-visible');
   });
