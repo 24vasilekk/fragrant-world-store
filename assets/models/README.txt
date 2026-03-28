@@ -1,16 +1,20 @@
-Куда класть 3D-файл флакона:
+Куда класть 3D-файлы флакона:
 
-1) Положи модель в эту папку: assets/models/
-2) Назови файл ровно: perfume.glb
-3) Итоговый путь должен быть: assets/models/perfume.glb
+1) Положи модели в эту папку: assets/models/
+2) Для компьютера: perfume.glb
+3) Для телефона: perfume-mobile.glb
+
+Итоговые пути:
+- assets/models/perfume.glb
+- assets/models/perfume-mobile.glb
 
 Поддерживаемый формат:
 - Рекомендуется: .glb
 - Также можно: .gltf (но тогда нужны отдельные текстуры)
 
-Если хочешь другое имя файла:
+Если хочешь другие имена:
 - Открой index.html
 - Найди id="perfumeModel"
-- Измени src="assets/models/perfume.glb" на свой путь
-
-Если модель не загрузится, сайт покажет резервную CSS-анимацию флакона.
+- Измени:
+  - data-desktop-src="assets/models/perfume.glb"
+  - data-mobile-src="assets/models/perfume-mobile.glb"

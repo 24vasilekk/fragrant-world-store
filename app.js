@@ -21,6 +21,22 @@
   let searchQuery = '';
   let sortMode = 'default';
 
+  function setupModelByDevice() {
+    if (!perfumeModel) return;
+
+    const desktopSrc = perfumeModel.dataset.desktopSrc || perfumeModel.getAttribute('src');
+    const mobileSrc = perfumeModel.dataset.mobileSrc;
+    if (!desktopSrc || !mobileSrc) return;
+
+    const isMobileViewport = window.matchMedia('(max-width: 900px)').matches;
+    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const saveDataEnabled = Boolean(connection && connection.saveData);
+    const isSlowNetwork = Boolean(connection && /(^|\\b)(2g|3g)(\\b|$)/i.test(connection.effectiveType || ''));
+
+    perfumeModel.setAttribute('src', (isMobileViewport || isCoarsePointer || saveDataEnabled || isSlowNetwork) ? mobileSrc : desktopSrc);
+  }
+
   function cardTemplate(item) {
     return `
       <article class="card reveal" data-product="${item.id}" tabindex="0">
@@ -173,6 +189,8 @@
   });
 
   if (perfumeModel) {
+    setupModelByDevice();
+
     perfumeModel.addEventListener('load', function () {
       perfumeModel.classList.add('is-ready');
     });
