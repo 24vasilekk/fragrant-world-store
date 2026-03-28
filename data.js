@@ -1,5 +1,9 @@
 (function () {
   const STORAGE_KEY = 'fw_catalog_v1';
+  const curatedImages = {
+    'xerjoff-erba-pura': 'assets/images/xerjoff-erba-pura.svg',
+    'tom-ford-oud-wood': 'assets/images/tom-ford-oud-wood.svg'
+  };
 
   const defaultProducts = [
     {
@@ -21,8 +25,7 @@
       price: 16900,
       notes: 'Апельсин, лимон, бергамот, белый мускус',
       category: 'Unisex',
-      image:
-        'https://images.unsplash.com/photo-1616604847462-66f1f55d78d1?auto=format&fit=crop&w=900&q=80'
+      image: 'assets/images/xerjoff-erba-pura.svg'
     },
     {
       id: 'tom-ford-oud-wood',
@@ -32,8 +35,7 @@
       price: 21400,
       notes: 'Кардамон, уд, сандал, амбра, ваниль',
       category: 'Men',
-      image:
-        'https://images.unsplash.com/photo-1588405748880-12d1d2a59db9?auto=format&fit=crop&w=900&q=80'
+      image: 'assets/images/tom-ford-oud-wood.svg'
     },
     {
       id: 'mancera-cedrat-boise',
@@ -63,15 +65,16 @@
     if (!Array.isArray(list)) return null;
     const cleaned = list
       .map(function (item) {
+        const id = String(item.id || '').trim();
         return {
-          id: String(item.id || '').trim(),
+          id: id,
           name: String(item.name || '').trim(),
           brand: String(item.brand || '').trim(),
           volume: String(item.volume || '').trim(),
           price: Number(item.price || 0),
           notes: String(item.notes || '').trim(),
           category: String(item.category || 'Unisex').trim(),
-          image: String(item.image || '').trim()
+          image: curatedImages[id] || String(item.image || '').trim()
         };
       })
       .filter(function (item) {

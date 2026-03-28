@@ -79,6 +79,11 @@
     }
 
     catalogGrid.innerHTML = current.map(cardTemplate).join('');
+    catalogGrid.querySelectorAll('.card__img').forEach(function (img) {
+      img.onerror = function () {
+        img.src = 'assets/images/perfume-fallback.svg';
+      };
+    });
     observeReveal();
   }
 
@@ -106,6 +111,9 @@
     });
     if (!item) return;
 
+    modalImage.onerror = function () {
+      modalImage.src = 'assets/images/perfume-fallback.svg';
+    };
     modalImage.src = item.image;
     modalImage.alt = item.name;
     modalMeta.textContent = `${item.brand} • ${item.volume}`;

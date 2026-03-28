@@ -747,15 +747,31 @@ a {
 
 .footer-link {
   border: 1px solid #cfb99a;
-  background: rgba(255, 255, 255, 0.58);
+  background: rgba(255, 255, 255, 0.62);
   border-radius: 999px;
-  padding: 0.35rem 0.72rem;
-  transition: 220ms ease;
+  padding: 0.4rem 0.84rem;
+  color: #503f2b;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
 }
 
 .footer-link:hover {
-  border-color: #bfa076;
-  background: #fff8ee;
+  transform: translateY(-1px);
+  border-color: #b8915f;
+  background: #fffaf1;
+  box-shadow: 0 8px 16px rgba(67, 46, 19, 0.1);
+}
+
+.footer-link--primary {
+  background: linear-gradient(145deg, #5a4328, #3f2f1d);
+  color: #fff8ec;
+  border-color: transparent;
+}
+
+.footer-link--primary:hover {
+  background: linear-gradient(145deg, #6a4f2f, #4a3722);
+  border-color: transparent;
 }
 
 .reveal {

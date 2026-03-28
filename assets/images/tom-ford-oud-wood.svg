@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9f5ec"/>
+      <stop offset="100%" stop-color="#dfcfb8"/>
+    </linearGradient>
+    <linearGradient id="bottle" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2f2319"/>
+      <stop offset="100%" stop-color="#5e4530"/>
+    </linearGradient>
+    <linearGradient id="cap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#15191f"/>
+      <stop offset="100%" stop-color="#2e3640"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <ellipse cx="600" cy="760" rx="190" ry="46" fill="#302014" opacity="0.22"/>
+  <rect x="520" y="170" width="160" height="100" rx="12" fill="url(#cap)"/>
+  <rect x="470" y="260" width="260" height="500" rx="22" fill="url(#bottle)"/>
+  <rect x="492" y="290" width="216" height="442" rx="18" fill="#694b31" opacity="0.62"/>
+  <rect x="520" y="448" width="160" height="120" rx="10" fill="#f3e6cf"/>
+  <text x="600" y="500" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#332213">OUD WOOD</text>
+  <text x="600" y="544" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#4d3320" letter-spacing="3">TOM FORD</text>
+</svg>

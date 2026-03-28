@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5eb"/>
+      <stop offset="100%" stop-color="#e9dcc7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <ellipse cx="600" cy="760" rx="170" ry="40" fill="#8c6a3e" opacity="0.22"/>
+  <rect x="542" y="182" width="116" height="90" rx="14" fill="#25272d"/>
+  <rect x="560" y="252" width="80" height="44" rx="8" fill="#b68b45"/>
+  <rect x="440" y="280" width="320" height="460" rx="120" fill="#e6bb74"/>
+  <rect x="472" y="320" width="256" height="388" rx="96" fill="#f8e4bc" opacity="0.55"/>
+  <text x="600" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#6f5430">Fragrant World</text>
+</svg>
