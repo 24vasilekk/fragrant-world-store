@@ -2,11 +2,11 @@
 
 1) Положи модели в эту папку: assets/models/
 2) Для компьютера: perfume.glb
-3) Для телефона: perfume-mobile.glb
+3) Для телефона: perfume-mobile-opt.glb
 
 Итоговые пути:
 - assets/models/perfume.glb
-- assets/models/perfume-mobile.glb
+- assets/models/perfume-mobile-opt.glb
 
 Поддерживаемый формат:
 - Рекомендуется: .glb
@@ -17,4 +17,4 @@
 - Найди id="perfumeModel"
 - Измени:
   - data-desktop-src="assets/models/perfume.glb"
-  - data-mobile-src="assets/models/perfume-mobile.glb"
+  - data-mobile-src="assets/models/perfume-mobile-opt.glb"
