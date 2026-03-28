@@ -253,26 +253,12 @@ a {
   height: 100%;
   --progress-bar-color: #c88f2f;
   --poster-color: transparent;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 420ms ease;
 }
 
 .perfume-model.is-ready {
   opacity: 1;
-}
-
-.bottle-scene {
-  position: relative;
-  width: min(420px, 88vw);
-  aspect-ratio: 1;
-  perspective: 1000px;
-}
-
-#cssBottleFallback {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .shadow {
