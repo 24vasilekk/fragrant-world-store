@@ -32,7 +32,7 @@
 
         <div class="social-row">
           <a class="social-link" href="https://t.me/fragrantworlddstore" target="_blank" rel="noopener" aria-label="Telegram канал">
-            <span aria-hidden="true">✈</span>
+            <img src="assets/models/telegram-logo.png" alt="Telegram" class="social-link__img" />
           </a>
         </div>
 
@@ -45,11 +45,15 @@
             id="perfumeModel"
             class="perfume-model"
             src="assets/models/perfume.glb"
+            poster="assets/images/perfume-fallback.svg"
+            loading="eager"
+            reveal="auto"
             camera-controls
             auto-rotate
             rotation-per-second="18deg"
             shadow-intensity="1"
             exposure="1.08"
+            interaction-prompt="none"
             ar
           ></model-viewer>
         </div>
@@ -193,6 +197,7 @@
 
   <script src="data.js"></script>
   <script type="module" src="vendor/model-viewer.min.js"></script>
+  <script nomodule src="vendor/model-viewer-umd.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
