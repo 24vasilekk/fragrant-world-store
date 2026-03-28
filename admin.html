@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fragrant World | Админка</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Prata&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-layout">
+  <div class="admin-wrap">
+    <div class="admin-top">
+      <div>
+        <p class="eyebrow">Управление каталогом</p>
+        <h1 class="admin-title">Fragrant World Admin</h1>
+        <p class="admin-sub">Добавляйте, редактируйте и удаляйте ароматы в одном удобном интерфейсе.</p>
+      </div>
+      <a href="index.html" class="btn btn-ghost">Вернуться на сайт</a>
+    </div>
+
+    <div class="admin-grid">
+      <section class="panel">
+        <h3 id="formTitle">Добавить аромат</h3>
+        <p class="panel-note">Заполните поля и сохраните карточку товара в каталог.</p>
+        <form id="productForm" class="form">
+          <input type="hidden" name="id" />
+          <input name="name" placeholder="Название" required />
+          <input name="brand" placeholder="Бренд" required />
+          <input name="volume" placeholder="Объём (например, 100 ml)" required />
+          <input name="price" type="number" min="1" placeholder="Цена" required />
+          <select name="category">
+            <option value="Unisex">Unisex</option>
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+          </select>
+          <textarea name="notes" placeholder="Ноты / краткое описание" required></textarea>
+          <input name="image" placeholder="Ссылка на фото (https://...)" required />
+          <label class="upload-label">или загрузить фото с устройства
+            <input id="imageUpload" type="file" accept="image/*" />
+          </label>
+          <button id="saveBtn" type="submit">Сохранить в каталог</button>
+        </form>
+        <div class="btn-row admin-actions">
+          <button id="cancelEditBtn" class="btn btn-ghost" type="button" hidden>Отменить редактирование</button>
+          <button id="resetBtn" class="btn btn-ghost" type="button">Сбросить к демо</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h3>Текущие позиции</h3>
+        <p class="panel-note">Список отображается в том же порядке, что и на главной странице.</p>
+        <div id="adminList" class="admin-list"></div>
+      </section>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

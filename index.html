@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fragrant World | Каталог парфюмерии</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Prata&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="hero__texture"></div>
+
+    <div class="topbar-wrap">
+      <div class="container topbar">
+        <a class="brand-mini" href="#top">Fragrant World</a>
+        <nav class="top-nav">
+          <a href="#catalog">Каталог</a>
+          <a href="#about">Преимущества</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container hero__content">
+      <div class="hero__left reveal">
+        <p class="eyebrow">Perfume Store</p>
+        <h1>Fragrant World</h1>
+        <p class="subtitle">Оригинальная парфюмерия с большим каталогом, быстрой доставкой и лучшими ценами.</p>
+
+        <div class="social-row">
+          <a class="social-link" href="https://t.me/fragrantworlddstore" target="_blank" rel="noopener" aria-label="Telegram канал">
+            <span aria-hidden="true">✈</span>
+          </a>
+        </div>
+
+        <a class="scroll-link" href="#catalog">Смотреть каталог</a>
+      </div>
+
+      <div class="hero__right reveal">
+        <div class="model-stage">
+          <model-viewer
+            id="perfumeModel"
+            class="perfume-model"
+            src="assets/models/perfume.glb"
+            camera-controls
+            auto-rotate
+            rotation-per-second="18deg"
+            shadow-intensity="1"
+            exposure="1.08"
+            ar
+          ></model-viewer>
+
+          <div id="cssBottleFallback" class="bottle-scene" aria-hidden="true" hidden>
+            <div class="shadow"></div>
+            <div class="bottle">
+              <div class="bottle-cap"></div>
+              <div class="bottle-neck"></div>
+              <div class="bottle-body">
+                <span class="label-top">FW</span>
+                <span class="label-main">PERFUME</span>
+                <span class="label-sub">EXTRAIT</span>
+              </div>
+              <div class="glow-ring"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section--light" id="catalog">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Каталог</p>
+          <h2>Подборка ароматов в наличии</h2>
+        </div>
+
+        <div class="catalog-tools reveal">
+          <div class="filters">
+            <button class="filter-btn is-active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="Unisex">Unisex</button>
+            <button class="filter-btn" data-filter="Men">Men</button>
+            <button class="filter-btn" data-filter="Women">Women</button>
+          </div>
+
+          <div class="catalog-tools__right">
+            <input id="searchInput" class="search-input" type="search" placeholder="Поиск по названию или бренду" />
+            <select id="sortSelect" class="sort-select">
+              <option value="default">Сортировка: по умолчанию</option>
+              <option value="price-asc">Цена: по возрастанию</option>
+              <option value="price-desc">Цена: по убыванию</option>
+              <option value="name-asc">Название: А-Я</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="catalogGrid" class="catalog-grid"></div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="about-shell reveal">
+          <div class="about-head">
+            <p class="eyebrow">Почему мы</p>
+            <h2>Аккуратный сервис и уверенный результат</h2>
+            <p>Держим фокус на оригинальности, честной цене и понятной коммуникации без лишней сложности.</p>
+          </div>
+
+          <div class="about-grid">
+            <article class="about-card">
+              <span class="about-num">01</span>
+              <h3>Только оригинал</h3>
+              <p>Проверенные поставщики, прозрачная консультация по каждому аромату и batch-code по запросу.</p>
+            </article>
+            <article class="about-card">
+              <span class="about-num">02</span>
+              <h3>Грамотные цены</h3>
+              <p>Онлайн-формат позволяет держать стоимость ближе к реальной, без переплаты за офлайн-сеть.</p>
+            </article>
+            <article class="about-card">
+              <span class="about-num">03</span>
+              <h3>Поддержка и подарки</h3>
+              <p>Sample к заказам при наличии, оперативная связь с менеджером и помощь в выборе аромата под задачу.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="container faq-layout reveal">
+        <div class="faq-intro">
+          <p class="eyebrow">FAQ</p>
+          <h2>Ответы на ключевые вопросы</h2>
+          <p>Коротко и по делу: оригинальность, цены, сроки и сопровождение заказа.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>
+              <span class="faq-index">01</span>
+              <span class="faq-q">Это оригинальная парфюмерия?</span>
+              <span class="faq-sign" aria-hidden="true"></span>
+            </summary>
+            <p>Да. Работаем только с проверенными поставщиками, можно сверять batch-code и тестировать аромат перед постоянной покупкой.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <span class="faq-index">02</span>
+              <span class="faq-q">Почему цены ниже, чем в крупных сетях?</span>
+              <span class="faq-sign" aria-hidden="true"></span>
+            </summary>
+            <p>Онлайн-формат без дорогой офлайн-инфраструктуры, поэтому цена ближе к реальной стоимости аромата.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <span class="faq-index">03</span>
+              <span class="faq-q">Есть ли подарки к заказу?</span>
+              <span class="faq-sign" aria-hidden="true"></span>
+            </summary>
+            <p>Да, к заказам доступен sample при наличии. Актуальные варианты отправляются в личке перед подтверждением.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <span class="faq-index">04</span>
+              <span class="faq-q">Как быстро отправляете заказ?</span>
+              <span class="faq-sign" aria-hidden="true"></span>
+            </summary>
+            <p>Обычно подтверждение и отправка занимают 1-2 дня, по наличию и городу сроки уточняет менеджер.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>Fragrant World</p>
+      <div class="footer-actions">
+        <a class="footer-link" href="admin.html">Админка</a>
+        <a class="footer-link" href="#top">Наверх</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="productModal" class="modal">
+    <article class="modal-card">
+      <button id="modalClose" class="modal-close" type="button" aria-label="Закрыть">×</button>
+      <img id="modalImage" class="modal-img" src="" alt="" />
+      <div class="modal-content">
+        <p id="modalMeta" class="card__meta"></p>
+        <h3 id="modalTitle"></h3>
+        <p id="modalNotes"></p>
+        <div class="card__row">
+          <span id="modalPrice" class="price"></span>
+          <span id="modalCategory" class="tag"></span>
+        </div>
+        <a id="modalOrder" class="scroll-link" href="https://t.me/Arsen_Chilingaryan" target="_blank" rel="noopener">Связаться с менеджером</a>
+      </div>
+    </article>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
