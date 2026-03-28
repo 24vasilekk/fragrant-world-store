@@ -166,10 +166,35 @@
   });
 
   if (perfumeModel && cssBottleFallback) {
-    perfumeModel.addEventListener('error', function () {
-      perfumeModel.hidden = true;
+    let loaded = false;
+
+    function showFallback() {
+      perfumeModel.classList.remove('is-ready');
       cssBottleFallback.hidden = false;
+    }
+
+    function showModel() {
+      loaded = true;
+      cssBottleFallback.hidden = true;
+      perfumeModel.classList.add('is-ready');
+    }
+
+    // If custom element is unavailable on deploy, keep animated CSS fallback.
+    if (!window.customElements || !customElements.get('model-viewer')) {
+      showFallback();
+    }
+
+    perfumeModel.addEventListener('load', function () {
+      showModel();
     });
+
+    perfumeModel.addEventListener('error', function () {
+      showFallback();
+    });
+
+    setTimeout(function () {
+      if (!loaded) showFallback();
+    }, 3500);
   }
 
   window.addEventListener('storage', function (event) {

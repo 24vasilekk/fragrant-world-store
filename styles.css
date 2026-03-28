@@ -253,6 +253,12 @@ a {
   height: 100%;
   --progress-bar-color: #c88f2f;
   --poster-color: transparent;
+  opacity: 0;
+  transition: opacity 420ms ease;
+}
+
+.perfume-model.is-ready {
+  opacity: 1;
 }
 
 .bottle-scene {
